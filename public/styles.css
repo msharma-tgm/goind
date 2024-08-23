@@ -18,6 +18,37 @@ header {
     padding: 1rem 0;
 }
 
+/* Overlay styling */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensure it covers the entire page */
+    backdrop-filter: blur(3px); /* Blurs the background */
+}
+
+.overlay-content {
+    text-align: center;
+    color: #fff;
+}
+
+.construction-logo {
+    width: 150px; /* Adjust size as needed */
+    margin-bottom: 20px;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
 nav {
     display: flex;
     justify-content: space-between;
