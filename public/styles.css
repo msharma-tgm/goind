@@ -48,6 +48,21 @@ header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+/* Mobile compatibility */
+@media (max-width: 768px) {
+    .overlay {
+        -webkit-backdrop-filter: blur(10px); /* Ensure blur works on iOS Safari */
+        backdrop-filter: blur(10px);
+    }
+    
+    .overlay h1 {
+        font-size: 1.8rem; /* Slightly smaller font size for mobile */
+    }
+
+    .construction-logo {
+        width: 100px; /* Smaller logo for mobile */
+    }
+}
 
 nav {
     display: flex;
@@ -246,7 +261,7 @@ footer p {
 /* Responsive Styles */
 @media (max-width: 768px) {
     body {
-        background: url('backgroundmobile.png') no-repeat center center fixed;
+        background: url('backgroundmobile.png') no-repeat fixed;
         background-size: cover;
     }
 
