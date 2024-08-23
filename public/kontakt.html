@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GO iNDIA</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="logo.png" alt="GOiNDIA Logo" />
+          <h4 onclick="window.location.href = '/'">GO iNDIA!</h4>
+        </div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul id="nav-links">
+          <li><a href="/menu">Menu</a></li>
+          <li><a href="/bestellen">Bestellen</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+          <li><a href="/konto">Konto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Registration Form -->
+    <form action="/register" method="POST">
+      <h2>Register</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <button type="submit">Register</button>
+    </form>
+
+    <!-- Login Form -->
+    <form action="/login" method="POST">
+      <h2>Login</h2>
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <button type="submit">Login</button>
+    </form>
+
+    <section class="about-us">
+      <h2>About Us</h2>
+      <p>
+        At GOiNDIA, we pride ourselves on offering a unique dining experience.
+        Our chefs use the freshest ingredients to create delectable dishes that
+        will tantalize your taste buds. Whether you're dining in or ordering
+        online, we aim to deliver exceptional service and mouth-watering meals
+        every time.
+      </p>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 GOiNDIA. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("change", function () {
+          var navLinks = document.getElementById("nav-links");
+          var menuIcon = document.querySelector(".menu-icon");
+
+          if (this.checked) {
+            navLinks.classList.add("open");
+            menuIcon.innerHTML = "&#10005;"; // 'X' symbol
+          } else {
+            navLinks.classList.remove("open");
+            menuIcon.innerHTML = "&#9776;"; // Menu symbol
+          }
+        });
+    </script>
+  </body>
+</html>

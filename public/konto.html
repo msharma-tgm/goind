@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GO iNDIA</title>
+    <link rel="stylesheet" href="styles2.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="logo.png" alt="GOiNDIA Logo" />
+          <h4 onclick="window.location.href = '/'">GO iNDIA!</h4>
+        </div>
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+        <ul id="nav-links">
+          <li><a href="/menu">Menu</a></li>
+          <li><a href="/bestellen">Bestellen</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+          <li><a href="/impressum">Impressum</a></li>
+          <li><a href="/konto">Konto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero loading-hero">
+      <div class="hero-content">
+        <div class="spinner"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 GOiNDIA. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("change", function () {
+          var navLinks = document.getElementById("nav-links");
+          var menuIcon = document.querySelector(".menu-icon");
+
+          if (this.checked) {
+            navLinks.classList.add("open");
+            menuIcon.innerHTML = "&#10005;"; // 'X' symbol
+          } else {
+            navLinks.classList.remove("open");
+            menuIcon.innerHTML = "&#9776;"; // Menu symbol
+          }
+        });
+
+      // Check session status
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/check-session") // Replace with your actual endpoint to check session status
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            if (data.loggedIn) {
+              window.location.href = "/profile"; // Redirect to profile if logged in
+            } else {
+              window.location.href = "/login"; // Redirect to login if not logged in
+            }
+          })
+          .catch((error) => {
+            console.error("Error checking session status:", error);
+            // Handle error or fallback to login page
+            window.location.href = "/login";
+          });
+      });
+    </script>
+  </body>
+</html>
