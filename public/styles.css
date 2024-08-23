@@ -51,8 +51,8 @@ header {
 /* Mobile compatibility */
 @media (max-width: 768px) {
     .overlay {
-        -webkit-backdrop-filter: blur(10px); /* Ensure blur works on iOS Safari */
-        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(3px); /* Ensure blur works on iOS Safari */
+        backdrop-filter: blur(3px);
     }
     
     .overlay h1 {
